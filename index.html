@@ -79,7 +79,7 @@
   <div class="container">
     <h1>TodoList</h1>
 
-    <form>
+    <form onSubmit="submitTodo(); return false">
       <input type="text" id="new-todo" placeholder="What needs to be done?">
     </form>
 
@@ -97,39 +97,11 @@
       Todo: <span id="todo-count">1</span> •
       Done: <span id="completed-count">0</span> •
       Total: <span id="total-count">1</span>
+      <a href="#" onClick="cleanUpTodos(); return false">Clean Up</a>
     </div>
   </div>
 
-  <script>
-  function updateCounters() {
-    // Total number of todos
-    var totalCount = document.getElementById('total-count');
-    var totalTodos = document.getElementsByClassName("todo").length;
-    totalCount.innerHTML = totalTodos;
-
-    // Total number of completed todos
-    var completedCount = document.getElementById('completed-count');
-    var completedTodos = document.getElementsByClassName("completed").length;
-    completedCount.innerHTML = completedTodos;
-
-    // Total number of uncompleted todos
-    var todoCount = document.getElementById('todo-count');
-    var uncompletedTodos = totalTodos - completedTodos;
-    todoCount.innerHTML = uncompletedTodos;
-  }
-
-  function toggleDone() {
-    var checkbox = this;
-
-    if (checkbox.checked) {
-      checkbox.parentElement.className = "todo completed"
-    } else {
-      checkbox.parentElement.className = "todo"
-    }
-  }
-
-  updateCounters();
-  </script>
+  <script src="javascript.js"></script>
 
 </body>
 </html>
